@@ -1,0 +1,7 @@
+position: absolute;
+left: 6.39%;
+right: 90.35%;
+top: 2.05%;
+bottom: 95.12%;
+
+transform: matrix(-1, 0, 0, 1, 0, 0);
