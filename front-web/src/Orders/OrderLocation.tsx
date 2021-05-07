@@ -1,9 +1,10 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { type } from 'node:os';
 import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import AsyncSelect from 'react-select';
 import { fetchLocalMapBox } from '../api';
-import { OrderLocationdata } from './types';
+import { OrderLocationData } from './types';
 
 const initialPosition = {
     lat: -20.5740871,
@@ -20,7 +21,7 @@ type Place = {
 }
 
 type Props = {
-    onChangeLocation: (location: OrderLocationdata) => void;
+    onChangeLocation: (location: OrderLocationData) => void;
 }
 
 function OrderLocation({ onChangeLocation }: Props) {
@@ -48,7 +49,7 @@ function OrderLocation({ onChangeLocation }: Props) {
     const handleChangeSelect = (place: Place) => {
         setAddress(place);
         onChangeLocation({
-            latitutde: place.position.lat,
+            latitude: place.position.lat,
             longitude: place.position.lng,
             address: place.label!
         });
