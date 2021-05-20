@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { type } from 'node:os';
 import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import AsyncSelect from 'react-select';

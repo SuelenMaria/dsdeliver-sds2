@@ -5,7 +5,6 @@ type Props = {
     totalPrice: number;
     onSubmit: () => void;
 }
-
 function OrderSummary({ amount, totalPrice, onSubmit }: Props) {
     return (
         <div className="order-summary-container">
@@ -13,13 +12,13 @@ function OrderSummary({ amount, totalPrice, onSubmit }: Props) {
                 <div>
                     <span className="amount-selected-container">
                         <strong className="amount-selected">{amount}</strong>
-                            PEDIDOS SELELCIONADOS
+                        PEDIDOS SELECIONADOS
                     </span>
                     <span className="order-summary-total">
                         <strong className="amount-selected">
                             {formatPrice(totalPrice)}
                         </strong>
-                            VALOR TOTAL
+                        VALOR TOTAL
                     </span>
                 </div>
                 <button
