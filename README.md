@@ -1,76 +1,167 @@
-# DS Delivery
+﻿# DS Delivery
 
 ![DS Delivery](path_to_screenshot.png)
 
 ## Descrição
 
-DS Delivery é um sistema de entregas delivery desenvolvido como projeto acadêmico. Este sistema é projetado para oferecer uma experiência de usuário suave e eficiente tanto em dispositivos desktop quanto móveis.
+DS Delivery é um sistema completo de entregas, composto por:
+- Backend Java Spring Boot
+- Frontend web React + TypeScript
+- Frontend mobile Expo React Native
+
+O sistema é desenvolvido como projeto acadêmico e suporta gerenciamento de produtos, pedidos e integração com mapas.
+
+## Estrutura do Projeto
+
+- `backend/` - API Java Spring Boot
+- `front-web/` - Aplicação web React
+- `front-mobile/` - Aplicação mobile Expo React Native
 
 ## Funcionalidades
 
-- **Geolocalização**: Integração com mapas para rastreamento e localização de entregas em tempo real.
-- **Temas**: Suporte a temas claro e escuro, permitindo ao usuário escolher a melhor opção de visualização.
-- **Versatilidade**: Disponível para desktop e mobile, garantindo acessibilidade e usabilidade em diversas plataformas.
+- Cadastro de pedidos e produtos
+- Consulta de produtos
+- Envio de pedidos para backend
+- Interface responsiva para web
+- App mobile via Expo
+- Uso de mapas para localização de entregas
 
 ## Tecnologias Utilizadas
 
 ### Backend
-- **Java**: Linguagem de programação utilizada.
-- **SpringTools**: Framework utilizado para criar uma aplicação robusta e escalável.
+- Java 11
+- Spring Boot 2.4.2
+- Spring Data JPA
+- Spring Security
+- H2 Database (em memória para desenvolvimento)
+- PostgreSQL (dependência de runtime)
 
-### Frontend
-- **HTML**: Estrutura da aplicação.
-- **CSS**: Estilos e design responsivo.
-- **TypeScript**: Tipo seguro de JavaScript para melhorar a manutenção e a escalabilidade do código.
-- **JavaScript**: Lógica de interação e dinâmica da interface.
+### Frontend Web
+- React 17
+- TypeScript 4.1
+- Axios
+- React Router DOM v5
+- Leaflet / React Leaflet
+- React Select
+- react-toastify
+- react-scripts 5.0.1
 
-## Instalação
+### Frontend Mobile
+- Expo SDK 41
+- React Native 16.13.1
+- Axios
+- @expo-google-fonts/open-sans
+- React Navigation v5
 
-### Requisitos
-- [Java](https://www.oracle.com/java/technologies/javase-downloads.html)
-- [SpringTools](https://spring.io/tools)
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/)
+## Requisitos
 
-### Passos
+- Java 11
+- Maven (ou use o wrapper `./mvnw` / `.\mvnw.cmd`)
+- Node.js 16/18 recomendado
+- npm
+- Expo CLI local instalada via dependência do projeto
 
-1. Clone o repositório:
+## Instalação e execução
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/seu_usuario/ds-delivery.git
+dsdeliver-sds2
+```
+
+### 2. Backend
+
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+
+No Windows PowerShell:
+
+```powershell
+cd backend
+.\mvnw.cmd spring-boot:run
+```
+
+A API estará disponível em `http://localhost:8080`.
+
+### 3. Frontend Web
+
+```bash
+cd ../front-web
+npm install
+npm start
+```
+
+A aplicação web estará em `http://localhost:3000`.
+
+### 4. Frontend Mobile
+
+```bash
+cd ../front-mobile
+npm install
+npm start
+```
+
+Para abrir em Android ou iOS, use:
+
+```bash
+npm run android
+npm run ios
+```
+
+Se o Expo solicitar instalação de `@expo/ngrok`, responda `y`.
+
+## Configuração de ambiente
+
+### Frontend Web
+- O frontend web consome a API em `http://localhost:8080` por padrão.
+- Para alterar o endpoint, crie um arquivo `front-web/.env` com:
+
+```env
+REACT_APP_API_URL=http://localhost:8080
+```
+
+### Frontend Mobile
+- O mobile consome `process.env.API_URL` se estiver definido.
+- Caso contrário, o app usa o backend remoto em `https://suelen-sds2.herokuapp.com`.
+
+## Observações
+
+- O comando `npm start` em `front-web` já define `NODE_OPTIONS=--openssl-legacy-provider` no script de inicialização.
+- O `front-mobile` é uma aplicação Expo antiga (SDK 41) e deve ser executado com `npm start` ou `expo start`.
+
+## Desenvolvimento e Git
+
+### Comandos recomendados
+
+```bash
+git add README.md
+git add front-web/.env
+git add front-mobile/package.json
+git add front-mobile/package-lock.json
+git commit -m "Atualiza README com instruções de execução e setup"
+git push origin main
+```
+
+### Fluxo de contribuição
+
+1. Crie uma branch de recurso:
    ```bash
-   git clone https://github.com/seu_usuario/ds-delivery.git
+   git checkout -b feature/ajuste-readme
    ```
-
-2. Navegue até a pasta do backend e inicie a aplicação Spring:
+2. Faça alterações e teste localmente.
+3. Crie commits claros:
    ```bash
-   cd ds-delivery/backend
-   ./mvnw spring-boot:run
+   git commit -m "Atualiza README e instruções de execução"
    ```
-
-3. Navegue até a pasta do frontend e instale as dependências:
+4. Envie para o repositório remoto:
    ```bash
-   cd ../frontend
-   npm install
+   git push origin feature/ajuste-readme
    ```
-
-4. Inicie a aplicação frontend:
-   ```bash
-   npm start
-   ```
-
-## Uso
-
-1. Acesse a aplicação pelo navegador em `http://localhost:3000`.
-2. Navegue pelo sistema utilizando as opções disponíveis.
-3. Utilize o mapa para visualizar a localização das entregas.
-4. Alterne entre os temas claro e escuro conforme sua preferência.
-
-## Contribuição
-
-1. Faça um fork do projeto.
-2. Crie uma nova branch (`git checkout -b feature/nova-feature`).
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`).
-4. Envie para o branch (`git push origin feature/nova-feature`).
 5. Abra um Pull Request.
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está licenciado sob a licença MIT.
